@@ -7,4 +7,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
 
 file(COPY "temperatures.txt" DESTINATION "../cmake-build-debug")
 
-add_executable(Task1 main.cpp)
+add_executable(TaskA a.cpp)
+add_executable(TaskB b.cpp)
