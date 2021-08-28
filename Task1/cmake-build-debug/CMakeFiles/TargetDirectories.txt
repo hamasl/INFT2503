@@ -1,0 +1,4 @@
+/Users/martin/Documents/programming/INFT2503/Task1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/martin/Documents/programming/INFT2503/Task1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/martin/Documents/programming/INFT2503/Task1/cmake-build-debug/CMakeFiles/TaskB.dir
+/Users/martin/Documents/programming/INFT2503/Task1/cmake-build-debug/CMakeFiles/TaskA.dir

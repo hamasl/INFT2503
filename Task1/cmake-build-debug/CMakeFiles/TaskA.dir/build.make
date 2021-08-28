@@ -69,15 +69,15 @@ include CMakeFiles/TaskA.dir/flags.make
 CMakeFiles/TaskA.dir/a.cpp.o: CMakeFiles/TaskA.dir/flags.make
 CMakeFiles/TaskA.dir/a.cpp.o: ../a.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/martin/Documents/programming/INFT2503/Task1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TaskA.dir/a.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TaskA.dir/a.cpp.o -c /Users/martin/Documents/programming/INFT2503/Task1/a.cpp
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TaskA.dir/a.cpp.o -c /Users/martin/Documents/programming/INFT2503/Task1/a.cpp
 
 CMakeFiles/TaskA.dir/a.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TaskA.dir/a.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/martin/Documents/programming/INFT2503/Task1/a.cpp > CMakeFiles/TaskA.dir/a.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/martin/Documents/programming/INFT2503/Task1/a.cpp > CMakeFiles/TaskA.dir/a.cpp.i
 
 CMakeFiles/TaskA.dir/a.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TaskA.dir/a.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/martin/Documents/programming/INFT2503/Task1/a.cpp -o CMakeFiles/TaskA.dir/a.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/martin/Documents/programming/INFT2503/Task1/a.cpp -o CMakeFiles/TaskA.dir/a.cpp.s
 
 # Object files for target TaskA
 TaskA_OBJECTS = \

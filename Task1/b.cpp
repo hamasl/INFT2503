@@ -31,7 +31,7 @@ void read_temperatures(double temperatures[], int length) {
     ifstream file;
     file.open(file_name);
     if(!file){
-        cerr << "Could not open file." << endl;
+        cerr << "Could not open file.\nCheck that it is stored in the same directory as the built version of this file." << endl;
         file.close();
         exit(1);
     }
