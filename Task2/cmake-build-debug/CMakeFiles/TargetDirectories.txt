@@ -1,7 +1,0 @@
-/Users/martin/Documents/programming/INFT2503/Task2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/martin/Documents/programming/INFT2503/Task2/cmake-build-debug/CMakeFiles/Question6.dir
-/Users/martin/Documents/programming/INFT2503/Task2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/martin/Documents/programming/INFT2503/Task2/cmake-build-debug/CMakeFiles/Question4.dir
-/Users/martin/Documents/programming/INFT2503/Task2/cmake-build-debug/CMakeFiles/Question5.dir
-/Users/martin/Documents/programming/INFT2503/Task2/cmake-build-debug/CMakeFiles/Question1b.dir
-/Users/martin/Documents/programming/INFT2503/Task2/cmake-build-debug/CMakeFiles/Question1a.dir
