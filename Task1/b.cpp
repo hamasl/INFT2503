@@ -24,8 +24,9 @@ return 0;
 }
 
 void read_temperatures(double temperatures[], int length) {
-    //NOTE file has to be in the same directory as the built version of this file
-    //CMakeList.txt sets
+    //NOTE file has to be in the same directory as the built version of this file (b.cpp)
+    //CMakeList.txt can automate this task, but then the path to the build directory has to be manually set.
+    //This is done in the file() command
     const char file_name[] = "temperatures.txt";
     ifstream file;
     file.open(file_name);
