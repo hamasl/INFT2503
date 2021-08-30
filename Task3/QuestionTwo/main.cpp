@@ -1,10 +1,10 @@
 #include <iostream>
-#include "../QuestionOne/Circle.cpp"
+#include "../QuestionOne/circle.hpp"
 
 using namespace std;
 
 int main() {
-    Circle circle(5);
+    circle circle(5);
 
     int area = circle.get_area();
     cout << "Arealet er lik " << area << endl;

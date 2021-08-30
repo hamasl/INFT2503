@@ -9,9 +9,9 @@
 
 using namespace std;
 const double sales_tax = 0.2;
-class Commodity{
+class commodity{
 public:
-    Commodity(const string _name, const int _id, const double _price);
+    commodity(const string _name, const int _id, const double _price);
     string get_name() const;
     int get_id() const;
     double get_price() const;
