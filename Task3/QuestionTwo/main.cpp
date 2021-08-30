@@ -1,6 +1,5 @@
 #include <iostream>
-// Circle is stored in questionOne.cpp, would normally call the file Circle.cpp, but it is called questionOne here because it is the first question of the task
-#include "questionOne.cpp"
+#include "../QuestionOne/Circle.cpp"
 
 using namespace std;
 

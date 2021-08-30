@@ -1,4 +1,13 @@
-//
-// Created by Martin Slind Hagen on 30/08/2021.
-//
+#include "Circle.hpp"
+
+Circle::Circle(double radius_) : radius(radius_) {}
+
+int Circle::get_area() const{
+    return pi * radius * radius;
+}
+
+double Circle::get_circumference() const {
+    double circumference = 2.0 * pi * radius;
+    return circumference;
+}
 

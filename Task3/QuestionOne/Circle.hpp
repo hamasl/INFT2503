@@ -1,8 +1,8 @@
 #ifndef TASK3_CIRCLE_H
 #define TASK3_CIRCLE_H
 
-#endif //TASK3_CIRCLE_H
 
+#pragma once
 
 const double pi = 3.141592;
 
@@ -14,3 +14,5 @@ public:
 private:
     double radius;
 };
+
+#endif //TASK3_CIRCLE_H
