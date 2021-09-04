@@ -2,11 +2,11 @@
 
 using namespace std;
 
-int find_sum(const int *table, int length);
+int find_sum(const int *table, const int length);
 
 int main(){
     cout << "\nQuestion 6:" <<endl;
-    int length = 20;
+    const int length = 20;
     int table[length];
     for (int i = 0; i < length; ++i) {
         table[i] = i+1;
@@ -18,7 +18,7 @@ int main(){
     return 0;
 }
 
-int find_sum(const int *table, int length){
+int find_sum(const int *table, const int length){
     int sum = 0;
     for(int i = 0; i < length; ++i){
         sum += *(table + i);
