@@ -28,13 +28,13 @@ int main(){
     cout << "Length of sentence: " << sentence.length() << endl;
 
     //Task d
-    //This is technically a copy since C++ copies it for ous, instead of manually needing to copy each character
+    //This is technically a copy since C++ copies it for us, instead of manually needing to copy each character
     string sentence2 = sentence;
 
     //Task e
     //Using unsigned long since sentence2.length() returns that
     for (unsigned long i = 10; i < 13; ++i) {
-        if(sentence2.length() >= i) {
+        if(sentence2.length() > i) {
             sentence2[i] = 'x';
         }
     }

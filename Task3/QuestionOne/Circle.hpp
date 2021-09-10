@@ -1,9 +1,9 @@
 #pragma once
 const double pi = 3.141592;
 
-class circle {
+class Circle {
 public:
-    circle(double radius_);
+    Circle(double radius_);
     int get_area() const;
     double get_circumference() const;
 private:

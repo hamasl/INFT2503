@@ -1,11 +1,11 @@
-#include "commodity.hpp"
+#include "Commodity.hpp"
 #include <iostream>
 
 using namespace std;
 
 int main() {
     const double quantity = 2.5;
-    commodity commodity("Norvegia", 123, 73.50);
+    Commodity commodity("Norvegia", 123, 73.50);
 
     cout << "Varenavn: " << commodity.get_name() << ", varenr: " << commodity.get_id() << " Pris pr enhet: " << commodity.get_price() << endl;
 
