@@ -14,6 +14,6 @@ include_directories(${GTKMM_INCLUDE_DIRS})
 link_directories(${GTKMM_LIBRARY_DIRS})
 
 
-add_executable(QuestionOne QuestionOne/main.cpp)
-add_executable(QuestionTwo QuestionTwo/main.cpp)
-target_link_libraries(QuestionTwo ${GTKMM_LIBRARIES})
+add_executable(QOne QuestionOne/main.cpp)
+add_executable(QTwo QuestionTwo/main.cpp)
+target_link_libraries(QTwo ${GTKMM_LIBRARIES})

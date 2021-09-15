@@ -2,3 +2,12 @@
 */.idea
 */cmake-build-debug/*
 */cmake-build-debug
+*/build/*
+*/build
+*/CMakeCache.txt
+*/CMakeFiles/*
+*/Makefile
+*/QTwo
+*/cmake_install.cmake
+*/.vscode/*
+*/.vscode
