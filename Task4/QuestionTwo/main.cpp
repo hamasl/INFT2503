@@ -1,13 +1,14 @@
 #include <gtkmm.h>
 #include <string>
-#include <iostream>
 
 using namespace std;
 
 class Window : public Gtk::Window {
 private:
+    /// Toggles the button based on the validity of the first and last name.
     void toggle_button();
-    string trim(string str);
+    /// Name needs to contain a character other than whitespace to be valid.
+    bool is_valid_name(string name);
 
 public:
     Gtk::VBox vbox;
@@ -46,40 +47,23 @@ public:
         });
 
         button.signal_clicked().connect([this]() {
-            label.set_text(trim(entry_first_name.get_text()) + " " + trim(entry_last_name.get_text()));
+            label.set_text(entry_first_name.get_text() + " " + entry_last_name.get_text());
         });
     }
 };
 
 void Window::toggle_button(){
-    button.set_sensitive(!(trim(entry_first_name.get_text())  == "" || trim(entry_last_name.get_text()) == ""));
+    button.set_sensitive(is_valid_name(entry_first_name.get_text()) && is_valid_name(entry_last_name.get_text()));
 }
 
-string Window::trim(string str){
-    if(str == "") return "";
-    size_t index = 0;
-    bool found = false;
-    size_t start_index = -1;
-    while(index < str.length() && !found){
-        if(str[index] != ' '){
-            start_index = index;
-            found = true;
+bool Window::is_valid_name(string name){
+    if(name.empty()) return false;
+    for(int i = 0; i < name.length(); ++i){
+        if(name[i] != ' '){
+            return true;
         }
-        index++;
     }
-    index = str.length()-1;
-    found = false;
-    size_t end_index = str.length()+1;
-    while(index >= 0 && !found){
-        if(str[index] != ' '){
-            end_index = index;
-            found = true;
-        }
-        index--;
-    }
-    cout << start_index << " " << end_index << endl;
-    cout << ((start_index == -1 && end_index == str.length()+1) ? "" : str.substr(start_index == -1 ? 0 : start_index, end_index == (str.length()+1) ? str.length() : end_index )) << " endmarker" << endl;
-    return (start_index == -1 && end_index == str.length()+1) ? "" : str.substr(start_index == -1 ? 0 : start_index, end_index == (str.length()+1) ? str.length() : end_index );
+    return false;
 }
 
 int main() {
