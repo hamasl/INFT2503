@@ -58,7 +58,7 @@ void Window::toggle_button(){
 
 bool Window::is_valid_name(string name){
     if(name.empty()) return false;
-    for(int i = 0; i < name.length(); ++i){
+    for(size_t i = 0; i < name.length(); ++i){
         if(name[i] != ' '){
             return true;
         }
