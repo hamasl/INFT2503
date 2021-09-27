@@ -159,7 +159,6 @@ int main() {
     cout << endl;
 
     cout << "A simulated game:" << endl;
-    cout << board.board_to_string() << endl;
     board.move_piece("e1", "e2");
     cout << board.board_to_string() << endl;
     board.move_piece("g8", "h6");
