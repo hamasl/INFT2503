@@ -126,9 +126,9 @@ public:
         vector<char> letters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
         std::string empty_row = "|    |    |    |    |    |    |    |    |";
         std::string row_divider = "-----------------------------------------";
-        for(int i = 0; i < squares.size(); ++i){
+        for(size_t i = 0; i < squares.size(); ++i){
             std::string row = empty_row;
-            for(int j = 0; j < squares[i].size(); ++j){
+            for(size_t j = 0; j < squares[i].size(); ++j){
                 auto &piece = squares[i][j];
                 if (piece) {
                    row.replace(5*j+1, 4, piece->board_representation());
