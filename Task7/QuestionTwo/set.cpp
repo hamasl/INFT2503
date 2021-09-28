@@ -29,11 +29,9 @@ std::ostream &Set::operator<<(std::ostream &out){
 }*/
 
 Set Set::operator|(Set &other){
-    Set s;
-    for(auto num : (*this).set){
-        if(std::find(other.set.begin(), other.set.end(), num) != other.set.end()){
-            s += num;
-        }
+    Set s = *this;
+    for(auto num : other.set){
+        s += num;
     }
     return s;
 }
