@@ -14,19 +14,19 @@ Set &Set::operator=(const Set &other){
 }
 
 std::ostream &Set::operator<<(std::ostream &out){
+    out << (*this);
+    return out;
+}
+
+std::ostream &operator<<(std::ostream &out, const Set &s){
     out << "{";
-    for(size_t i = 0; i < set.size(); ++i){
-        out << set[i];
-        if(i < set.size()-1) out << ", ";
+    for(size_t i = 0; i < s.set.size(); ++i){
+        out << s.set[i];
+        if(i < s.set.size()-1) out << ", ";
     }
     out << "}";
     return out;
 }
-
-/*std::ostream &operator<<(std::ostream &out, const Set &s){
-    std::ostream o = s << out;
-    return o;
-}*/
 
 Set Set::operator|(Set &other){
     Set s = *this;

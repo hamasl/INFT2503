@@ -87,7 +87,7 @@ public:
 
   std::function<void(const Piece &piece, const std::string &from, const std::string &to)> on_piece_move;
   std::function<void(const Piece &piece, const std::string &square)> on_piece_removed;
-  std::function<void(std::string color_string)> on_lost_game;
+  std::function<void(const ChessBoard::Color &color)> on_lost_game;
   std::function<void(const Piece &piece, const std::string &from, const std::string &to)> on_piece_move_invalid;
   std::function<void(const std::string &square)> on_piece_move_missing;
   std::function<void(const std::vector<std::vector<std::unique_ptr<Piece>>> &square)> on_after_piece_move;
@@ -123,7 +123,7 @@ private:
             }
             if (auto king = dynamic_cast<King *>(piece_to.get())) {
                 if (on_lost_game)
-                    on_lost_game(king->color_string());
+                    on_lost_game(king->color);
             }
           } else {
             // piece in the from square has the same color as the piece in the to square
@@ -154,8 +154,8 @@ private:
 class ChessBoardPrint {
 public:
     ChessBoardPrint(ChessBoard &board) {
-        board.on_lost_game=[](const std::string &color_string){
-            std::cout << color_string << " lost the game" << std::endl;
+        board.on_lost_game=[](const ChessBoard::Color &color){
+            std::cout << ((color == ChessBoard::Color::WHITE) ? "white" : "black") << " lost the game" << std::endl;
         };
         board.on_piece_move=[](const ChessBoard::Piece &piece, const std::string &from, const std::string &to){
             std::cout << piece.type() << " is moving from " << from << " to " << to << std::endl;
