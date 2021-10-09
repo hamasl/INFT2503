@@ -1,6 +1,8 @@
 #include "set.hpp"
 #include <iostream>
 
+Set::Set() {}
+
 Set &Set::operator+=(int num){
     if(std::find(set.begin(), set.end(), num) == set.end()){
         set.push_back(num);
@@ -12,6 +14,7 @@ Set &Set::operator=(const Set &other){
     this->set = other.set;
     return *this;
 }
+
 
 std::ostream &Set::operator<<(std::ostream &out){
     out << (*this);

@@ -6,8 +6,8 @@ int main(){
 
     set1 += 1;
     set1 += 1;
-    set1 += 3;
     set1 += 4;
+    set1 += 3;
     std::cout << "set1: " << set1 << std::endl;
 
 
@@ -19,7 +19,7 @@ int main(){
 
     Set set3 = set1;
 
-    std::cout << "set3: " << set3 << std::endl;
+    std::cout << "set3 (equal to set1): " << set3 << std::endl;
 
     return 0;
 }

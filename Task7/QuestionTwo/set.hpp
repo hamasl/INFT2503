@@ -5,7 +5,7 @@
 
 class Set{
 public:
-    Set()= default;
+    Set();
     Set &operator+=(int num);
     Set &operator=(const Set &other);
     std::ostream &operator<<(std::ostream &out);

@@ -28,6 +28,7 @@ Fraction Fraction::operator+(const Fraction &other) const {
     return fraction;
 }
 
+
 Fraction &Fraction::operator+=(const Fraction &other) {
     set(numerator * other.denominator + denominator * other.numerator, denominator * other.denominator);
     return *this;
@@ -47,14 +48,11 @@ Fraction Fraction::operator-(const Fraction &other) const {
 Fraction Fraction::operator-(int num) const {
     Fraction fraction;
     fraction.set(num);
-    fraction -= *this;
-    return fraction;
+    return *this - fraction;
 }
 
 Fraction operator-(int num, const Fraction &other){
-    Fraction fraction;
-    fraction = other - num;
-    return fraction;
+    return -(other-num);
 }
 
 Fraction &Fraction::operator-=(const Fraction &other) {
