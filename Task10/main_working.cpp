@@ -129,11 +129,8 @@ public:
   World() : dispatcher(&collision_configuration),
             dynamics(&dispatcher, &broadphase, &solver, &collision_configuration),
             cubes(6) {
-    init(1.5, 1.5, 0.0);
-  }
-
-  void init(float horizontal_val, float vertical_val, float gravity){
-    dynamics.setGravity(btVector3(0, gravity, 0));
+    //dynamics.setGravity(btVector3(0, -10.0, 0));
+    dynamics.setGravity(btVector3(0, 0, 0));
 
     //Add objects to the physics engine
     dynamics.addRigidBody(&ground.body);
@@ -152,9 +149,8 @@ public:
     transform.setOrigin(btVector3(1.0, 0.1, 0.0));
     ground_sphere.body.setCenterOfMassTransform(transform);
 
-    transform.setOrigin(btVector3(horizontal_val, vertical_val, 0.0));
+    transform.setOrigin(btVector3(1.5, 1.5, 0.0));
     falling_sphere.body.setCenterOfMassTransform(transform);
-    falling_sphere.body.setActivationState(1);
 
     //Position cubes
     transform.setOrigin(btVector3(-1.0, 0.1, -0.2));
@@ -169,42 +165,24 @@ public:
     cubes[4].body.setCenterOfMassTransform(transform);
     transform.setOrigin(btVector3(-1.0, 0.5, 0.0));
     cubes[5].body.setCenterOfMassTransform(transform);
-    std::cout << dynamics.getGravity().getY() << std::endl;
-  }
-
-  void reset(float horizontal_val, float vertical_val, float gravity){
-     dynamics.clearForces();
-     btVector3 zero_vec(0,0,0);
-
-     dynamics.removeRigidBody(&ground.body);
-     dynamics.removeRigidBody(&ground_sphere.body);
-     ground_sphere.body.clearForces();
-     ground_sphere.body.setAngularVelocity(zero_vec);
-     ground_sphere.body.setLinearVelocity(zero_vec);
-
-     dynamics.removeRigidBody(&falling_sphere.body);
-     falling_sphere.body.clearForces();
-     falling_sphere.body.setAngularVelocity(zero_vec);
-     falling_sphere.body.setLinearVelocity(zero_vec);
-     for (auto &cube : cubes){
-       dynamics.removeRigidBody(&cube.body);
-       cube.body.clearForces();
-       cube.body.setAngularVelocity(zero_vec);
-       cube.body.setLinearVelocity(zero_vec);
-     }
-     init(horizontal_val, vertical_val, gravity);
-  }
-
-  void drop(float horizontal_val, float vertical_val){
-    reset(horizontal_val, vertical_val, -10.0);
   }
 
   void horizontal_slide(float val){
-    reset(val, falling_sphere.body.getCenterOfMassPosition().getY(), 0);
+    btVector3 vec;
+    vec.setX(val);
+    vec.setY(falling_sphere.body.getCenterOfMassPosition().getY());
+    vec.setZ(falling_sphere.body.getCenterOfMassPosition().getZ());
+    transform.setOrigin(vec);
+    falling_sphere.body.setCenterOfMassTransform(transform);
   }
 
   void vertical_slide(float val){
-    reset(falling_sphere.body.getCenterOfMassPosition().getX(), val, 0);
+    btVector3 vec;
+    vec.setX(falling_sphere.body.getCenterOfMassPosition().getX());
+    vec.setY(val);
+    vec.setZ(falling_sphere.body.getCenterOfMassPosition().getZ());
+    transform.setOrigin(vec);
+    falling_sphere.body.setCenterOfMassTransform(transform);
   }
 
   void draw() {
@@ -292,13 +270,12 @@ public:
 
       ImGui::Begin("ImGui");
       if (ImGui::Button("Restart game")) {
-        horizontal_position = 1.5;
-        vertical_position = 1.5;
-        world.reset(horizontal_position, vertical_position, 0);
+        // Implementation needed
       }
       if (ImGui::Button("Drop ball")) {
-        world.drop(horizontal_position, vertical_position);
+        // Implementation needed
       }
+      //TODO FIX slider bug, slider returns to original position
       if (ImGui::SliderFloat("Horizontal ball position", &horizontal_position, 0.0, 3.0)) {
         world.horizontal_slide(horizontal_position);
       }
@@ -319,12 +296,12 @@ public:
       world.dynamics.stepSimulation(std::chrono::duration<float>(time - last_time).count());
       last_time = time;
 
-
       world.draw();
 
       window.pushGLStates();
       ImGui::SFML::Render(window);
       window.popGLStates();
+
       //Swap buffer (show result)
       window.display();
     }
