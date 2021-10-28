@@ -129,19 +129,22 @@ public:
   World() : dispatcher(&collision_configuration),
             dynamics(&dispatcher, &broadphase, &solver, &collision_configuration),
             cubes(6) {
-    init(1.5, 1.5, 0.0);
-  }
-
-  void init(float horizontal_val, float vertical_val, float gravity){
-    dynamics.setGravity(btVector3(0, gravity, 0));
-
-    //Add objects to the physics engine
+     //Add objects to the physics engine
     dynamics.addRigidBody(&ground.body);
     dynamics.addRigidBody(&ground_sphere.body);
     dynamics.addRigidBody(&falling_sphere.body);
-    for (auto &cube : cubes)
+    for (auto &cube : cubes){
       dynamics.addRigidBody(&cube.body);
+      cube.body.setActivationState(2);
+      }
+    init(1.5, 1.5, 0.0);
+    falling_sphere.body.setActivationState(4);
+    ground_sphere.body.setActivationState(4);
+  }
 
+  void init(float horizontal_val, float vertical_val, float gravity){
+   
+    dynamics.setGravity(btVector3(0, gravity, 0));
 
     //Position ground
     transform.setIdentity();
@@ -154,7 +157,9 @@ public:
 
     transform.setOrigin(btVector3(horizontal_val, vertical_val, 0.0));
     falling_sphere.body.setCenterOfMassTransform(transform);
-    falling_sphere.body.setActivationState(1);
+    
+    
+
 
     //Position cubes
     transform.setOrigin(btVector3(-1.0, 0.1, -0.2));
@@ -169,25 +174,20 @@ public:
     cubes[4].body.setCenterOfMassTransform(transform);
     transform.setOrigin(btVector3(-1.0, 0.5, 0.0));
     cubes[5].body.setCenterOfMassTransform(transform);
-    std::cout << dynamics.getGravity().getY() << std::endl;
   }
 
   void reset(float horizontal_val, float vertical_val, float gravity){
      dynamics.clearForces();
      btVector3 zero_vec(0,0,0);
 
-     dynamics.removeRigidBody(&ground.body);
-     dynamics.removeRigidBody(&ground_sphere.body);
      ground_sphere.body.clearForces();
      ground_sphere.body.setAngularVelocity(zero_vec);
      ground_sphere.body.setLinearVelocity(zero_vec);
 
-     dynamics.removeRigidBody(&falling_sphere.body);
      falling_sphere.body.clearForces();
      falling_sphere.body.setAngularVelocity(zero_vec);
      falling_sphere.body.setLinearVelocity(zero_vec);
      for (auto &cube : cubes){
-       dynamics.removeRigidBody(&cube.body);
        cube.body.clearForces();
        cube.body.setAngularVelocity(zero_vec);
        cube.body.setLinearVelocity(zero_vec);
@@ -225,7 +225,7 @@ class Application {
 public:
 //TODO window size back to 800x600
   Application() : context_settings(24),
-                  window(sf::VideoMode(1200, 800), "SFML Example", sf::Style::Default, context_settings) {
+                  window(sf::VideoMode(800, 600), "SFML Example", sf::Style::Default, context_settings) {
     window.setFramerateLimit(144);
     window.setVerticalSyncEnabled(true);
 
